@@ -152,7 +152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startDelay: 2
-  repeatRate: 2
+  spawnRateMin: 2.3
+  spawnRateMax: 3
   obstaclePrefab: {fileID: 2173221120946621473, guid: 9e1522aee87bec14aaf7291316040a00, type: 3}
   spawnPosition: {x: 25, y: 0, z: 0}
 --- !u!4 &1806456
@@ -670,7 +671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6537025260714398345, guid: 9e1522aee87bec14aaf7291316040a00, type: 3}
       propertyPath: moveSpeed
-      value: 31
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6692604094986365207, guid: 9e1522aee87bec14aaf7291316040a00, type: 3}
       propertyPath: m_LocalPosition.x
