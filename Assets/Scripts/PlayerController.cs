@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody playersRigidbody { get; set; }
-    public Vector3 force = new Vector3(0,0,0);
-    // public float gravityModifier;
     public bool isOnGround = true;
+    public bool isGameOver = false;
+    // public float gravityModifier;
+    private Rigidbody PlayersRigidbody { get; set; }
+    public Vector3 force = new Vector3(0, 0, 0);
 
     // Start is called before the first frame update
     void Start()
     {
-        playersRigidbody = GetComponent<Rigidbody>();
+        PlayersRigidbody = GetComponent<Rigidbody>();
        // Physics.gravity *= gravityModifier;
     }
 
@@ -21,13 +22,19 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
-            playersRigidbody.AddForce(force, ForceMode.Impulse);
+            PlayersRigidbody.AddForce(force, ForceMode.Impulse);
             isOnGround = false;
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        isOnGround = true;
+        if (collision.gameObject.tag == "Ground")
+            isOnGround = true;
+        else if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("Game over!");
+            isGameOver = true;
+        }
     }
 }
