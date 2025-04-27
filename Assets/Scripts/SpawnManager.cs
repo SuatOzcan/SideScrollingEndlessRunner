@@ -7,14 +7,16 @@ public class SpawnManager : MonoBehaviour
     public float startDelay = 2.0f;
     public float spawnRateMin = 2.5f;
     public float spawnRateMax = 3.0f;
+    private string _player = "Player";
     public GameObject obstaclePrefab;
+    private PlayerController _playerController;
     public Vector3 spawnPosition = new Vector3(25.0f, 0.0f, 0.0f);
 
     // Start is called before the first frame update
     void Start()
     {
+        _playerController = GameObject.Find(_player).GetComponent<PlayerController>();
         float randomRate = Random.Range(spawnRateMin, spawnRateMax);
-        Debug.Log(randomRate);
         InvokeRepeating(nameof(SpawnObstacle), startDelay, randomRate);
     }
 
@@ -26,6 +28,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnObstacle()
     {
-        Instantiate(obstaclePrefab, spawnPosition, obstaclePrefab.transform.rotation);
+        if(obstaclePrefab != null && _playerController != null && _playerController.isGameOver == false)
+            Instantiate(obstaclePrefab, spawnPosition, obstaclePrefab.transform.rotation);
     }
 }
