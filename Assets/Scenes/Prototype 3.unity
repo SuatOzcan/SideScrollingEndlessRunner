@@ -151,9 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0123bd3463096334c9da2fb13a481152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startDelay: 2
-  spawnRateMin: 3
-  spawnRateMax: 3
+  startDelay: 1.9
+  spawnRateMin: 2.6
+  spawnRateMax: 2.7
   obstaclePrefab: {fileID: 2173221120946621473, guid: 9e1522aee87bec14aaf7291316040a00, type: 3}
   spawnPosition: {x: 25, y: 0, z: 0}
 --- !u!4 &1806456
@@ -370,7 +370,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 834bc99524a174a378e982623582c06d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.768
   m_Pitch: 1
   Loop: 1
   Mute: 0
